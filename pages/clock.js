@@ -5,15 +5,15 @@ import Examples from "../components/examples";
 
 class Clock extends React.Component {
   static getInitialProps({ reduxStore, req }) {
+    console.log(!!req, reduxStore);
+
     const isServer = !!req;
     reduxStore.dispatch(serverRenderClock(isServer));
-    console.log(!!req);
 
     return {};
   }
 
   componentDidMount() {
-    console.log(this.props);
     const { dispatch } = this.props;
     this.timer = () => startClock(dispatch);
   }
@@ -23,8 +23,10 @@ class Clock extends React.Component {
   }
 
   render() {
+    console.log(this.props);
+
     return <Examples />;
   }
 }
 
-export default connect()(Clock);
+export default connect(null)(Clock);

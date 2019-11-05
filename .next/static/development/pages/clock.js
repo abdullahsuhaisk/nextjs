@@ -6974,7 +6974,6 @@ function (_React$Component) {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Clock, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      console.log(this.props);
       var dispatch = this.props.dispatch;
 
       this.timer = function () {
@@ -6989,6 +6988,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log(this.props);
       return __jsx(_components_examples__WEBPACK_IMPORTED_MODULE_8__["default"], null);
     }
   }], [{
@@ -6996,9 +6996,9 @@ function (_React$Component) {
     value: function getInitialProps(_ref) {
       var reduxStore = _ref.reduxStore,
           req = _ref.req;
+      console.log(!!req, reduxStore);
       var isServer = !!req;
       reduxStore.dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_7__["serverRenderClock"])(isServer));
-      console.log(!!req);
       return {};
     }
   }]);
@@ -7006,7 +7006,7 @@ function (_React$Component) {
   return Clock;
 }(react__WEBPACK_IMPORTED_MODULE_5___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])()(Clock));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(null)(Clock));
 
 /***/ }),
 
@@ -7123,7 +7123,7 @@ function initializeStore() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*******************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fclock&absolutePagePath=D%3A%5CProjects%5CClickAbleImage%5Cwith-ant-design%5Cpages%5Cclock.js ***!
   \*******************************************************************************************************************************************/
@@ -7146,5 +7146,5 @@ module.exports = dll_ea92a4d9664833a26066;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=clock.js.map

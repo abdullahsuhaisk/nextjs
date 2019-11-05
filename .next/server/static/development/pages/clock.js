@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -237,14 +237,13 @@ class Clock extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     reduxStore,
     req
   }) {
+    console.log(!!req, reduxStore);
     const isServer = !!req;
     reduxStore.dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_2__["serverRenderClock"])(isServer));
-    console.log(!!req);
     return {};
   }
 
   componentDidMount() {
-    console.log(this.props);
     const {
       dispatch
     } = this.props;
@@ -257,12 +256,13 @@ class Clock extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   render() {
+    console.log(this.props);
     return __jsx(_components_examples__WEBPACK_IMPORTED_MODULE_3__["default"], null);
   }
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(Clock));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null)(Clock));
 
 /***/ }),
 
@@ -375,7 +375,7 @@ function initializeStore(initialState = exampleInitialState) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/clock.js ***!
   \******************************/
