@@ -9,7 +9,7 @@ const OverlayContainer = ({ children }) => {
       document && document.getElementsByClassName("image-service")[0]
     );
   }, []);
-  console.log(container);
+  // console.log(container);
   if (container) {
     return <OverlayPortal container={container}>{children}</OverlayPortal>;
   }

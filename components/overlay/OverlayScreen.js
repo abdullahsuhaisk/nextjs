@@ -1,13 +1,19 @@
 import React from "react";
+import SafeArea from "./SafeArea";
+import Scaler from "./Scaler";
 
-export const OverlayScreen = () => {
-  console.log("Overlay Screen");
+export const OverlayScreen = props => {
+  // console.log("Overlay Screen");
+  // console.log(props);
+  const { layout } = props;
   return (
-    <div
-      className="overlay-screen"
-      style={{ position: "absolute", width: "100%", height: "100%" }}
-    >
-      <div style={{ position: "relative", backgroundColor: "black" }}></div>
-    </div>
+    <SafeArea layout={layout}>
+      <Scaler layout={layout}>
+        <div
+          className="overlay-screen"
+          style={{ position: "absolute", width: "100%", height: "100%" }}
+        ></div>
+      </Scaler>
+    </SafeArea>
   );
 };

@@ -28,8 +28,7 @@ var OverlayContainer = function OverlayContainer(_ref) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setcontainer(document && document.getElementsByClassName("image-service")[0]);
-  }, []);
-  console.log(container);
+  }, []); // console.log(container);
 
   if (container) {
     return __jsx(_OverlayPortal__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -80,7 +79,7 @@ var OverlayPortal = function OverlayPortal(props) {
   var container = props.container;
   var containerRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       layout = _useState[0],
       setLayout = _useState[1];
 
@@ -104,16 +103,15 @@ var OverlayPortal = function OverlayPortal(props) {
       width: containerWidth,
       height: containerHeight,
       safeArea: {
-        __typename: "SafeArea",
         top: topBottomMargin,
         right: rightLeftMargin,
         bottom: topBottomMargin,
         left: rightLeftMargin
       }
     };
-    setLayout(alayout);
-    console.log(layout);
-    console.log(alayout); // if (apolloClientRef.current) {
+    setLayout(alayout); // console.log(layout);
+    // console.log(alayout);
+    // if (apolloClientRef.current) {
     //   const data = {
     //     layout: {
     //       __typename: "Layout",
@@ -173,24 +171,130 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OverlayScreen", function() { return OverlayScreen; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SafeArea__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SafeArea */ "./components/overlay/SafeArea.js");
+/* harmony import */ var _Scaler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Scaler */ "./components/overlay/Scaler.js");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-var OverlayScreen = function OverlayScreen() {
-  console.log("Overlay Screen");
-  return __jsx("div", {
+
+
+var OverlayScreen = function OverlayScreen(props) {
+  // console.log("Overlay Screen");
+  // console.log(props);
+  var layout = props.layout;
+  return __jsx(_SafeArea__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    layout: layout
+  }, __jsx(_Scaler__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    layout: layout
+  }, __jsx("div", {
     className: "overlay-screen",
     style: {
       position: "absolute",
       width: "100%",
       height: "100%"
     }
-  }, __jsx("div", {
-    style: {
-      position: "relative",
-      backgroundColor: "black"
-    }
-  }));
+  })));
 };
+
+/***/ }),
+
+/***/ "./components/overlay/SafeArea.js":
+/*!****************************************!*\
+  !*** ./components/overlay/SafeArea.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+ // import gql from 'graphql-tag';
+// import { Query } from 'react-apollo';
+// const GET_SAFE_AREA = gql`
+//   query getSafeAreaForSafeArea {
+//     layout @client {
+//       safeArea {
+//         top
+//         right
+//         bottom
+//         left
+//       }
+//     }
+//   }
+// `;
+
+var SafeArea = function SafeArea(props) {
+  console.log(props);
+  var children = props.children;
+  var safeArea = props.layout && props.layout.safeArea;
+  if (!safeArea === null) return __jsx("div", {
+    className: "vb--safe-area",
+    style: {
+      overflow: "hidden",
+      position: "absolute",
+      top: "".concat(safeArea.top, "px"),
+      right: "".concat(safeArea.right, "px"),
+      bottom: "".concat(safeArea.bottom, "px"),
+      left: "".concat(safeArea.left, "px")
+    }
+  }, children);
+  return __jsx("div", null, "Loading");
+};
+
+SafeArea.propTypes = {
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (SafeArea);
+
+/***/ }),
+
+/***/ "./components/overlay/Scaler.js":
+/*!**************************************!*\
+  !*** ./components/overlay/Scaler.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var baseWidth = 812;
+var baseHeight = 450;
+
+var Scaler = function Scaler(props) {
+  var children = props.children;
+  var layout = props;
+  var safeArea = props.layout && props.layout.safeArea;
+  if (safeArea === null) return null;
+  var scaleX = (layout.width - (safeArea.left + safeArea.right)) / baseWidth;
+  var scaleY = (layout.height - (safeArea.top + safeArea.bottom)) / baseHeight;
+  return __jsx("div", {
+    className: "vb--scaler Template1",
+    style: {
+      width: "".concat(baseWidth, "px"),
+      height: "".concat(baseHeight, "px"),
+      transformOrigin: "left top",
+      transform: "perspective(1px) scaleX(".concat(scaleX.toFixed(9), ") scaleY(").concat(scaleY.toFixed(9), ")"),
+      backfaceVisibility: "hidden",
+      perspective: "1000px"
+    }
+  }, children);
+};
+
+Scaler.propTypes = {
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Scaler);
 
 /***/ }),
 
@@ -19689,7 +19793,7 @@ var Image = function Image() {
 
 /***/ }),
 
-/***/ 16:
+/***/ 15:
 /*!*******************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fimage&absolutePagePath=D%3A%5CProjects%5CClickAbleImage%5Cwith-ant-design%5Cpages%5Cimage.js ***!
   \*******************************************************************************************************************************************/
@@ -19712,5 +19816,5 @@ module.exports = dll_ea92a4d9664833a26066;
 
 /***/ })
 
-},[[16,"static/runtime/webpack.js"]]]);
+},[[15,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=image.js.map

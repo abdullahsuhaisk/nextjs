@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -121,8 +121,7 @@ const OverlayContainer = ({
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     setcontainer(document && document.getElementsByClassName("image-service")[0]);
-  }, []);
-  console.log(container);
+  }, []); // console.log(container);
 
   if (container) {
     return __jsx(_OverlayPortal__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -177,7 +176,7 @@ const OverlayPortal = props => {
   const {
     0: layout,
     1: setLayout
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const updateLayout = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(() => {
     const containerWidth = 800;
     const containerHeight = 454;
@@ -198,16 +197,15 @@ const OverlayPortal = props => {
       width: containerWidth,
       height: containerHeight,
       safeArea: {
-        __typename: "SafeArea",
         top: topBottomMargin,
         right: rightLeftMargin,
         bottom: topBottomMargin,
         left: rightLeftMargin
       }
     };
-    setLayout(alayout);
-    console.log(layout);
-    console.log(alayout); // if (apolloClientRef.current) {
+    setLayout(alayout); // console.log(layout);
+    // console.log(alayout);
+    // if (apolloClientRef.current) {
     //   const data = {
     //     layout: {
     //       __typename: "Layout",
@@ -267,24 +265,136 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OverlayScreen", function() { return OverlayScreen; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SafeArea__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SafeArea */ "./components/overlay/SafeArea.js");
+/* harmony import */ var _Scaler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Scaler */ "./components/overlay/Scaler.js");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-const OverlayScreen = () => {
-  console.log("Overlay Screen");
-  return __jsx("div", {
+
+
+const OverlayScreen = props => {
+  // console.log("Overlay Screen");
+  // console.log(props);
+  const {
+    layout
+  } = props;
+  return __jsx(_SafeArea__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    layout: layout
+  }, __jsx(_Scaler__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    layout: layout
+  }, __jsx("div", {
     className: "overlay-screen",
     style: {
       position: "absolute",
       width: "100%",
       height: "100%"
     }
-  }, __jsx("div", {
-    style: {
-      position: "relative",
-      backgroundColor: "black"
-    }
-  }));
+  })));
 };
+
+/***/ }),
+
+/***/ "./components/overlay/SafeArea.js":
+/*!****************************************!*\
+  !*** ./components/overlay/SafeArea.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+ // import gql from 'graphql-tag';
+// import { Query } from 'react-apollo';
+// const GET_SAFE_AREA = gql`
+//   query getSafeAreaForSafeArea {
+//     layout @client {
+//       safeArea {
+//         top
+//         right
+//         bottom
+//         left
+//       }
+//     }
+//   }
+// `;
+
+const SafeArea = props => {
+  console.log(props);
+  const {
+    children
+  } = props;
+  const safeArea = props.layout && props.layout.safeArea;
+  if (!safeArea === null) return __jsx("div", {
+    className: "vb--safe-area",
+    style: {
+      overflow: "hidden",
+      position: "absolute",
+      top: `${safeArea.top}px`,
+      right: `${safeArea.right}px`,
+      bottom: `${safeArea.bottom}px`,
+      left: `${safeArea.left}px`
+    }
+  }, children);
+  return __jsx("div", null, "Loading");
+};
+
+SafeArea.propTypes = {
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (SafeArea);
+
+/***/ }),
+
+/***/ "./components/overlay/Scaler.js":
+/*!**************************************!*\
+  !*** ./components/overlay/Scaler.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+let baseWidth = 812;
+let baseHeight = 450;
+
+const Scaler = props => {
+  const {
+    children
+  } = props;
+  const layout = props;
+  const safeArea = props.layout && props.layout.safeArea;
+  if (safeArea === null) return null;
+  const scaleX = (layout.width - (safeArea.left + safeArea.right)) / baseWidth;
+  const scaleY = (layout.height - (safeArea.top + safeArea.bottom)) / baseHeight;
+  return __jsx("div", {
+    className: "vb--scaler Template1",
+    style: {
+      width: `${baseWidth}px`,
+      height: `${baseHeight}px`,
+      transformOrigin: "left top",
+      transform: `perspective(1px) scaleX(${scaleX.toFixed(9)}) scaleY(${scaleY.toFixed(9)})`,
+      backfaceVisibility: "hidden",
+      perspective: "1000px"
+    }
+  }, children);
+};
+
+Scaler.propTypes = {
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Scaler);
 
 /***/ }),
 
@@ -329,7 +439,7 @@ const Image = () => {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/image.js ***!
   \******************************/
