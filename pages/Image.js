@@ -11,20 +11,20 @@ const Image = () => {
       {
         //TODO: Spinner will come here
       }
-      <img className="image-service" src="/static/image.jpg"></img>
+      <img
+        className="image-service"
+        src="/static/image.jpg"
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "100%",
+          pointerEvents: "none"
+        }}
+      ></img>
       <OverlayContainer>
         <OverlayScreen />
       </OverlayContainer>
-      <style jsx>
-        {`
-          div {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-          }
-        `}
-      </style>
+      <style jsx>{``}</style>
     </div>
   );
 };

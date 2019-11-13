@@ -63,6 +63,7 @@ const OverlayPortal = props => {
 
   useEffect(() => {
     updateLayout();
+    console.log(containerRef);
     new ResizeSensor(containerRef.current, throttle(updateLayout, 100));
   }, []);
 

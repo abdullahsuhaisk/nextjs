@@ -16,7 +16,7 @@ const Scaler = props => {
 
   return (
     <div
-      className="vb--scaler Template1"
+      className="scaler"
       style={{
         width: `${baseWidth}px`,
         height: `${baseHeight}px`,

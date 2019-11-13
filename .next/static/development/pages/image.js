@@ -28,7 +28,8 @@ var OverlayContainer = function OverlayContainer(_ref) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setcontainer(document && document.getElementsByClassName("image-service")[0]);
-  }, []); // console.log(container);
+  }, []);
+  console.log(container);
 
   if (container) {
     return __jsx(_OverlayPortal__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -131,6 +132,7 @@ var OverlayPortal = function OverlayPortal(props) {
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     updateLayout();
+    console.log(containerRef);
     new css_element_queries_src_ResizeSensor__WEBPACK_IMPORTED_MODULE_3___default.a(containerRef.current, Object(lodash__WEBPACK_IMPORTED_MODULE_4__["throttle"])(updateLayout, 100));
   }, []);
   var children = react__WEBPACK_IMPORTED_MODULE_0___default.a.Children.map(props.children, function (child, index) {
@@ -279,7 +281,7 @@ var Scaler = function Scaler(props) {
   var scaleX = (layout.width - (safeArea.left + safeArea.right)) / baseWidth;
   var scaleY = (layout.height - (safeArea.top + safeArea.bottom)) / baseHeight;
   return __jsx("div", {
-    className: "vb--scaler Template1",
+    className: "scaler",
     style: {
       width: "".concat(baseWidth, "px"),
       height: "".concat(baseHeight, "px"),
@@ -19780,20 +19782,26 @@ var Image = function Image() {
       height: "100%",
       overflow: "hidden"
     },
-    className: "jsx-1816125377" + " " + "image-container"
+    className: "jsx-2085888330" + " " + "image-container"
   }, __jsx("img", {
     src: "/static/image.jpg",
-    className: "jsx-1816125377" + " " + "image-service"
+    style: {
+      position: "relative",
+      width: "100%",
+      height: "100%",
+      pointerEvents: "none"
+    },
+    className: "jsx-2085888330" + " " + "image-service"
   }), __jsx(_components_overlay_OverlayContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null, __jsx(_components_overlay_OverlayScreen__WEBPACK_IMPORTED_MODULE_3__["OverlayScreen"], null)), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-    id: "1816125377"
-  }, "div.jsx-1816125377{width:100%;height:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkQ6XFxQcm9qZWN0c1xcQ2xpY2tBYmxlSW1hZ2VcXHdpdGgtYW50LWRlc2lnblxccGFnZXNcXGltYWdlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQWtCUyxBQUd3QixXQUNDLFlBQ0MsMEVBQ1UsbUdBQ3pCIiwiZmlsZSI6IkQ6XFxQcm9qZWN0c1xcQ2xpY2tBYmxlSW1hZ2VcXHdpdGgtYW50LWRlc2lnblxccGFnZXNcXGltYWdlLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gXCJyZWFjdFwiO1xyXG5pbXBvcnQgT3ZlcmxheUNvbnRhaW5lciBmcm9tIFwiLi4vY29tcG9uZW50cy9vdmVybGF5L092ZXJsYXlDb250YWluZXJcIjtcclxuaW1wb3J0IHsgT3ZlcmxheVNjcmVlbiB9IGZyb20gXCIuLi9jb21wb25lbnRzL292ZXJsYXkvT3ZlcmxheVNjcmVlblwiO1xyXG5cclxuY29uc3QgSW1hZ2UgPSAoKSA9PiB7XHJcbiAgcmV0dXJuIChcclxuICAgIDxkaXZcclxuICAgICAgY2xhc3NOYW1lPVwiaW1hZ2UtY29udGFpbmVyXCJcclxuICAgICAgc3R5bGU9e3sgd2lkdGg6IFwiMTAwJVwiLCBoZWlnaHQ6IFwiMTAwJVwiLCBvdmVyZmxvdzogXCJoaWRkZW5cIiB9fVxyXG4gICAgPlxyXG4gICAgICB7XHJcbiAgICAgICAgLy9UT0RPOiBTcGlubmVyIHdpbGwgY29tZSBoZXJlXHJcbiAgICAgIH1cclxuICAgICAgPGltZyBjbGFzc05hbWU9XCJpbWFnZS1zZXJ2aWNlXCIgc3JjPVwiL3N0YXRpYy9pbWFnZS5qcGdcIj48L2ltZz5cclxuICAgICAgPE92ZXJsYXlDb250YWluZXI+XHJcbiAgICAgICAgPE92ZXJsYXlTY3JlZW4gLz5cclxuICAgICAgPC9PdmVybGF5Q29udGFpbmVyPlxyXG4gICAgICA8c3R5bGUganN4PlxyXG4gICAgICAgIHtgXHJcbiAgICAgICAgICBkaXYge1xyXG4gICAgICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgICAgICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgICAgICAgIH1cclxuICAgICAgICBgfVxyXG4gICAgICA8L3N0eWxlPlxyXG4gICAgPC9kaXY+XHJcbiAgKTtcclxufTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IEltYWdlO1xyXG4iXX0= */\n/*@ sourceURL=D:\\Projects\\ClickAbleImage\\with-ant-design\\pages\\image.js */"));
+    id: "2085888330"
+  }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkQ6XFxQcm9qZWN0c1xcQ2xpY2tBYmxlSW1hZ2VcXHdpdGgtYW50LWRlc2lnblxccGFnZXNcXGltYWdlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQTBCa0IiLCJmaWxlIjoiRDpcXFByb2plY3RzXFxDbGlja0FibGVJbWFnZVxcd2l0aC1hbnQtZGVzaWduXFxwYWdlc1xcaW1hZ2UuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XHJcbmltcG9ydCBPdmVybGF5Q29udGFpbmVyIGZyb20gXCIuLi9jb21wb25lbnRzL292ZXJsYXkvT3ZlcmxheUNvbnRhaW5lclwiO1xyXG5pbXBvcnQgeyBPdmVybGF5U2NyZWVuIH0gZnJvbSBcIi4uL2NvbXBvbmVudHMvb3ZlcmxheS9PdmVybGF5U2NyZWVuXCI7XHJcblxyXG5jb25zdCBJbWFnZSA9ICgpID0+IHtcclxuICByZXR1cm4gKFxyXG4gICAgPGRpdlxyXG4gICAgICBjbGFzc05hbWU9XCJpbWFnZS1jb250YWluZXJcIlxyXG4gICAgICBzdHlsZT17eyB3aWR0aDogXCIxMDAlXCIsIGhlaWdodDogXCIxMDAlXCIsIG92ZXJmbG93OiBcImhpZGRlblwiIH19XHJcbiAgICA+XHJcbiAgICAgIHtcclxuICAgICAgICAvL1RPRE86IFNwaW5uZXIgd2lsbCBjb21lIGhlcmVcclxuICAgICAgfVxyXG4gICAgICA8aW1nXHJcbiAgICAgICAgY2xhc3NOYW1lPVwiaW1hZ2Utc2VydmljZVwiXHJcbiAgICAgICAgc3JjPVwiL3N0YXRpYy9pbWFnZS5qcGdcIlxyXG4gICAgICAgIHN0eWxlPXt7XHJcbiAgICAgICAgICBwb3NpdGlvbjogXCJyZWxhdGl2ZVwiLFxyXG4gICAgICAgICAgd2lkdGg6IFwiMTAwJVwiLFxyXG4gICAgICAgICAgaGVpZ2h0OiBcIjEwMCVcIixcclxuICAgICAgICAgIHBvaW50ZXJFdmVudHM6IFwibm9uZVwiXHJcbiAgICAgICAgfX1cclxuICAgICAgPjwvaW1nPlxyXG4gICAgICA8T3ZlcmxheUNvbnRhaW5lcj5cclxuICAgICAgICA8T3ZlcmxheVNjcmVlbiAvPlxyXG4gICAgICA8L092ZXJsYXlDb250YWluZXI+XHJcbiAgICAgIDxzdHlsZSBqc3g+e2BgfTwvc3R5bGU+XHJcbiAgICA8L2Rpdj5cclxuICApO1xyXG59O1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgSW1hZ2U7XHJcbiJdfQ== */\n/*@ sourceURL=D:\\Projects\\ClickAbleImage\\with-ant-design\\pages\\image.js */"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Image);
 
 /***/ }),
 
-/***/ 15:
+/***/ 16:
 /*!*******************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fimage&absolutePagePath=D%3A%5CProjects%5CClickAbleImage%5Cwith-ant-design%5Cpages%5Cimage.js ***!
   \*******************************************************************************************************************************************/
@@ -19816,5 +19824,5 @@ module.exports = dll_ea92a4d9664833a26066;
 
 /***/ })
 
-},[[15,"static/runtime/webpack.js"]]]);
+},[[16,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=image.js.map
