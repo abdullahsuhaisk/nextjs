@@ -2,7 +2,7 @@ import React from "react";
 import OverlayContainer from "../components/overlay/OverlayContainer";
 import { OverlayScreen } from "../components/overlay/OverlayScreen";
 
-const Image = () => {
+const ImageApp = () => {
   return (
     <div
       className="image-container"
@@ -29,4 +29,4 @@ const Image = () => {
   );
 };
 
-export default Image;
+export default ImageApp;
