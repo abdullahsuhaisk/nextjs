@@ -18,10 +18,11 @@ import PropTypes from "prop-types";
 // `;
 
 const SafeArea = props => {
-  console.log(props);
+  // console.log(props);
   const { children } = props;
   const safeArea = props.layout && props.layout.safeArea;
-  if (!safeArea === null)
+  console.log(safeArea);
+  if (safeArea)
     return (
       <div
         className="vb--safe-area"

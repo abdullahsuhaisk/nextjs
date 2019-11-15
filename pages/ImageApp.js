@@ -1,26 +1,18 @@
 import React from "react";
 import OverlayContainer from "../components/overlay/OverlayContainer";
 import { OverlayScreen } from "../components/overlay/OverlayScreen";
+import Image from "../components/Image";
 
 const ImageApp = () => {
   return (
     <div
-      className="image-container"
+      className="imageHotSpot-container"
       style={{ width: "100%", height: "100%", overflow: "hidden" }}
     >
+      <Image />
       {
         //TODO: Spinner will come here
       }
-      <img
-        className="image-service"
-        src="/static/image.jpg"
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "100%",
-          pointerEvents: "none"
-        }}
-      ></img>
       <OverlayContainer>
         <OverlayScreen />
       </OverlayContainer>

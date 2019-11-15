@@ -13,8 +13,8 @@ const OverlayPortal = props => {
   const [layout, setLayout] = useState(null);
 
   const updateLayout = useCallback(() => {
-    const containerWidth = 800;
-    const containerHeight = 454;
+    const containerWidth = containerRef.current.clientWidth;
+    const containerHeight = containerRef.current.clientHeight;
     const containerAspectRatio = containerWidth / containerHeight;
     let rightLeftMargin = 0;
     let topBottomMargin = 0;
@@ -27,7 +27,6 @@ const OverlayPortal = props => {
       topBottomMargin = Math.round((containerHeight - height) / 2);
     }
     const alayout = {
-      __typename: "Layout",
       width: containerWidth,
       height: containerHeight,
       safeArea: {
@@ -39,7 +38,7 @@ const OverlayPortal = props => {
     };
     setLayout(alayout);
     // console.log(layout);
-    // console.log(alayout);
+    console.log(alayout);
 
     // if (apolloClientRef.current) {
     //   const data = {

@@ -6,7 +6,7 @@ const OverlayContainer = ({ children }) => {
   const [container, setcontainer] = useState(null);
   useEffect(() => {
     setcontainer(
-      document && document.getElementsByClassName("image-service")[0]
+      document && document.getElementsByClassName("image-overlay-container")[0]
     );
   }, []);
   console.log(container);
