@@ -12,6 +12,10 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
+    "/image2": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
     "/imageApp": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
